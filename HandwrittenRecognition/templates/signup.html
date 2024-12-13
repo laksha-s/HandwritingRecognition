@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="{{ url_for('home') }}" class="header-link">Home</a>
+    </header>
+    <div class="container">
+      <div class="form-container">
+        <h1>Sign Up</h1>
+        <form id="signup-form" action="{{ url_for('signup') }}" method="post">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <br />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <br />
+          <input type="submit" value="Sign Up" />
+        </form>
+        <p>
+          Already have an account?
+          <a href="{{ url_for('login') }}" class="signup-link">Log In</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+          window.location.href = "{{ url_for('login') }}"; // Redirect to login page
+        });
+    </script>
+  </body>
+</html>

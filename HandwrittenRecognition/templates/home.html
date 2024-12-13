@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden; /* Prevents scrollbars */
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        background-color: black;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 10;
+      }
+
+      .header-link {
+        color: white;
+        text-decoration: none;
+        margin-left: 15px;
+        font-size: 18px;
+      }
+
+      .header-link:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-top: 0; /* Remove extra padding */
+      }
+
+      .main-content {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 40px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        position: relative;
+        top: -10%; /* Move content up */
+        margin-top: 0; /* Remove extra margin */
+      }
+
+      .main-content h1 {
+        font-size: 3rem; /* Increased font size */
+        margin-bottom: 20px;
+        color: #e0f7fa; /* Radiant greenish white color */
+        animation: pulse 2s infinite; /* Continuous pulse effect */
+      }
+
+      .main-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .button {
+        background-color: #4caf50; /* Green */
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        animation: pulse 2s infinite; /* Continuous pulse effect */
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="{{ url_for('login') }}" class="header-link">Login</a>
+      <a href="{{ url_for('signup') }}" class="header-link">Sign Up</a>
+    </header>
+    <div class="container">
+      <div class="main-content">
+        <h1>Handwritten Word Recognition</h1>
+        <br />
+        <p>Your text recognition solution for handwritten documents.</p>
+        <p>
+          Sign in to start uploading your handwritten documents for recognition.
+        </p>
+        <a href="{{ url_for('signup') }}" class="button">Sign Up</a>
+      </div>
+    </div>
+  </body>
+</html>
